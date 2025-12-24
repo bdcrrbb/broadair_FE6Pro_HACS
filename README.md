@@ -110,38 +110,6 @@ The integration will automatically handle login and token refresh.
 | `sensor.<device_name>_pm10` | PM10 (if module installed) | µg/m³ |
 | `sensor.<device_name>_temperature` | Room temp (if module installed) | °C |
 
-## Example Automations
-
-### Turn on when CO2 is high
-```yaml
-automation:
-  - alias: "Fresh air on high CO2"
-    trigger:
-      - platform: numeric_state
-        entity_id: sensor.fresh_air_co2
-        above: 1000
-    action:
-      - service: fan.turn_on
-        target:
-          entity_id: fan.fresh_air
-        data:
-          percentage: 100
-```
-
-### Filter replacement reminder
-```yaml
-automation:
-  - alias: "HEPA filter reminder"
-    trigger:
-      - platform: numeric_state
-        entity_id: sensor.fresh_air_hepa_filter_life
-        below: 10
-    action:
-      - service: notify.mobile_app
-        data:
-          message: "HEPA filter life is below 10%, consider replacement"
-```
-
 ## Session Management
 
 The integration automatically handles session tokens. If a token expires, the integration will automatically re-authenticate using your stored credentials.
@@ -228,7 +196,7 @@ Contributions are welcome! Please feel free to submit issues or pull requests.
 
 ## Disclaimer
 
-This integration is not affiliated with or endorsed by Broad Group (远大集团). Use at your own risk.
+This custom component is created using Claude. This integration is not affiliated with or endorsed by Broad Group (远大集团). Use at your own risk.
 
 ## License
 
